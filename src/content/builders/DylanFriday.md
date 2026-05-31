@@ -3,7 +3,7 @@ name: Sitt Hmue Eain
 github: DylanFriday
 cohort: 1
 role: builder
-skills: ["JavaScript", "TypeScript", "React", "Angular", "nodejs", "nestjs", "aws", "Claude Code"]
+skills: ["JavaScript", "TypeScript", "nodejs", "aws"]
 repo: "https://github.com/DylanFriday/vibe-code-tours.github.io.git"
 linkedin: "https://www.linkedin.com/in/sitt-hmue-eain-5a883721b/"
 ---
