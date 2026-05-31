@@ -10,6 +10,7 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF, U+200C-200D, U+25CC;
 }
 @font-face {
   font-family: "Pyidaungsu";
@@ -20,6 +21,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+1000-109F, U+AA60-AA7F, U+A9E0-A9FF, U+200C-200D, U+25CC;
 }
 
 @tailwind base;
@@ -42,8 +44,10 @@
     );
     background-size: 24px 24px;
   }
+  /* Myanmar glyphs auto-render in Pyidaungsu via unicode-range (see @font-face).
+     Latin stays Inter at all weights. Only relax line-height for MY pages. */
   html[lang="my"] body {
-    @apply font-my leading-relaxed;
+    @apply leading-relaxed;
   }
   a {
     @apply text-accent-500 underline-offset-2 hover:text-accent-400;
