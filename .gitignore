@@ -32,3 +32,6 @@ docs/superpowers/
 
 # AI agent knowledge (lazy-loaded, not for publish)
 knowledge/
+
+# hero mosaic avatar cache (regenerable)
+scripts/hero/avatars/

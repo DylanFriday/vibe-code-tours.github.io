@@ -225,10 +225,44 @@ const stats = [
       transform: rotateY(180deg);
     }
   }
+
+  /* ---- Hero avatar mosaic (single composite WebP, see scripts/hero) ---- */
+  .hero-mosaic {
+    position: absolute;
+    inset: -6%;
+    background: url("/hero-mosaic.webp") center / cover no-repeat;
+    opacity: 0.22;
+    filter: saturate(0.85);
+    will-change: transform;
+    animation: heroDrift 40s ease-in-out infinite alternate;
+  }
+  .hero-mosaic-veil {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(1200px 620px at 50% 6%, transparent, #09090b 72%),
+      linear-gradient(180deg, #09090bcc 0%, #09090b99 42%, #09090b 100%);
+  }
+  @keyframes heroDrift {
+    from {
+      transform: scale(1.06) translate(-1%, -1%);
+    }
+    to {
+      transform: scale(1.12) translate(1%, 1%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mosaic {
+      animation: none;
+      transform: scale(1.06);
+    }
+  }
 </style>
 
 <!-- Hero -->
 <section id="hero" class="relative overflow-hidden py-20 text-center sm:py-28">
+  <div class="hero-mosaic" aria-hidden="true"></div>
+  <div class="hero-mosaic-veil" aria-hidden="true"></div>
   <div
     class="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full"
     style="background: radial-gradient(circle, #f59e0b0d, transparent 70%)"
@@ -237,7 +271,7 @@ const stats = [
   <span class="aurora aurora-1 hidden sm:block" aria-hidden="true"></span>
   <span class="aurora aurora-2 hidden sm:block" aria-hidden="true"></span>
   <div id="cursor-glow" class="cursor-glow hidden sm:block"></div>
-  <div class="relative mx-auto max-w-3xl px-5 sm:px-6">
+  <div class="relative z-10 mx-auto max-w-3xl px-5 sm:px-6">
     <div
       class="hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-accent-500/30 bg-accent-500/10 px-4 py-1.5 text-sm font-semibold text-accent-500"
     >
